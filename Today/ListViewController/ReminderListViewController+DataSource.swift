@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 extension ReminderListViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Int, String>
@@ -19,6 +20,9 @@ extension ReminderListViewController {
         contentConfiguration.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .caption1)
         cell.contentConfiguration = contentConfiguration
         
+        var doneButtonConfiguration = doneButtonConfiguration(for: reminder)
+        doneButtonConfiguration.tintColor = .todayListCellDoneButtonTint
+        cell.accessories = [ .customView(configuration: doneButtonConfiguration), .disclosureIndicator(displayed: .always) ]
         
         
         var backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
@@ -32,6 +36,7 @@ extension ReminderListViewController {
         let image = UIImage(systemName: symbolName, withConfiguration: symbolConfiguration)
         let button = UIButton()
         button.setImage(image, for: .normal)
+        button.setImage(UIImage(systemName: "pencil"), for: .highlighted)
         return UICellAccessory.CustomViewConfiguration(customView: button, placement: .leading(displayed: .always))
         }
 }
