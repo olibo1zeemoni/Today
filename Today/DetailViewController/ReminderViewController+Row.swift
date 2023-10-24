@@ -9,6 +9,7 @@ import UIKit
 ///The diffable data source uses hash values to determine which elements have changed between snapshots.
 extension ReminderViewController {
     enum Row: Hashable {
+        case header(String)
         case date
         case notes
         case time
