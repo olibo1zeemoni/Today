@@ -22,6 +22,13 @@ extension ReminderViewController {
         return contentConfiguration
     }
     
+    func titleConfiguration(for cell: UICollectionViewListCell, with title: String?) -> TextFieldContentView.Configuration {
+        var configuration = cell.textFieldConfiguration()
+        configuration.text = title
+        return configuration
+    }
+
+    
     func text(for row: Row) -> String? {
         switch row {
         case .date: return reminder.dueDate.dayText
