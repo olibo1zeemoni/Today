@@ -13,11 +13,13 @@ class ReminderViewController: UICollectionViewController {
     
     
     var reminder: Reminder
+    var workingReminder: Reminder
     private var dataSource: DataSource!
     
     
     init(reminder: Reminder) {
         self.reminder = reminder
+        self.workingReminder = reminder
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         listConfiguration.showsSeparators = false
         listConfiguration.headerMode = .firstItemInSection
@@ -49,9 +51,9 @@ class ReminderViewController: UICollectionViewController {
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         if editing {
-            updateSnapshotForEditing()
+            prepareForEditing()
         } else {
-            updateSnapshotForViewing()
+            prepareForViewing()
         }
     }
     
@@ -76,7 +78,13 @@ class ReminderViewController: UICollectionViewController {
         cell.tintColor = .todayPrimaryTint
     }
     
-
+    @objc func didCancelEdit(){
+        workingReminder = reminder
+    }
+    
+    private func prepareForEditing() {
+        updateSnapshotForEditing()
+    }
     
     private func updateSnapshotForEditing() {
         var snapshot = Snapshot()
@@ -85,6 +93,14 @@ class ReminderViewController: UICollectionViewController {
         snapshot.appendItems([.header(Section.date.name), .editableDate(reminder.dueDate)], toSection: .date)
         snapshot.appendItems([.header(Section.notes.name), .editableText(reminder.notes)], toSection: .notes)
         dataSource.apply(snapshot)
+    }
+    
+    private func prepareForViewing() {
+        ///there has been changes, ergo set reminder to working reminder.
+        if workingReminder != reminder {
+            reminder = workingReminder
+        }
+        updateSnapshotForViewing()
     }
     
     private func updateSnapshotForViewing() {
@@ -99,5 +115,6 @@ class ReminderViewController: UICollectionViewController {
         guard let section = Section(rawValue: sectionNumber) else { fatalError("Unable to find matching section") }
         return section
     }
+    
     
 }
