@@ -43,9 +43,9 @@ class ReminderListViewController: UICollectionViewController {
         navigationItem.titleView = listStyleSegmentedControl
         listStyleSegmentedControl.addTarget(self, action: #selector(didChangeListStyle(_:)), for: .valueChanged)
         
-        if #available(iOS 16, *) {
+//        if #available(iOS 16, *) {
             navigationItem.style = .navigator
-        }
+//        }
 
 
         updateSnapshot()
