@@ -8,9 +8,39 @@
 import UIKit
 
 class ProgressHeaderView: UICollectionReusableView {
+    static var elementKind: String { UICollectionView.elementKindSectionHeader }
+    
+    var progress: CGFloat = 0 {
+        didSet {
+            heightConstraint?.constant = progress * bounds.height
+            UIView.animate(withDuration: 0.2) {[weak self] in
+                self?.layoutIfNeeded() ///forces the view to update its layout immediately by animating the height changes of the upper and lower views.
+            }
+        }
+    }
+
     private let upperView = UIView(frame: .zero)
     private let lowerView = UIView(frame: .zero)
     private let containerView = UIView(frame: .zero)
+    private var heightConstraint: NSLayoutConstraint?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        prepareSubviews()
+    }
+    
+    ///requirement for subclassing a UIView
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        heightConstraint?.constant = progress * bounds.height
+        containerView.layer.masksToBounds = true//MARK: meaning
+        containerView.layer.cornerRadius = 0.5 * containerView.bounds.width
+    }
+
     
     private func prepareSubviews() {
         containerView.addSubview(upperView)
@@ -37,7 +67,16 @@ class ProgressHeaderView: UICollectionReusableView {
         upperView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         lowerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         lowerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        
+        heightConstraint = lowerView.heightAnchor.constraint(equalToConstant: 0)
+        heightConstraint?.isActive = true
+        
+        backgroundColor = .clear
+        containerView.backgroundColor = .clear
+        upperView.backgroundColor = .todayProgressUpperBackground
+        lowerView.backgroundColor = .todayProgressLowerBackground
     }
+    
     
 }
 
