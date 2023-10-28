@@ -29,7 +29,7 @@ class ReminderListViewController: UICollectionViewController {
             return $0 + chunk
         }
         return progress
-       // return CGFloat(filteredReminders.filter({$0.isComplete}).count / filteredReminders.count)//MARK: why
+//        return CGFloat(filteredReminders.filter({$0.isComplete}).count / filteredReminders.count)//MARK: why
     }
 
     override func viewDidLoad() {
@@ -63,7 +63,7 @@ class ReminderListViewController: UICollectionViewController {
         listStyleSegmentedControl.addTarget(self, action: #selector(didChangeListStyle(_:)), for: .valueChanged)
         
 //        if #available(iOS 16, *) {
-            navigationItem.style = .navigator
+        navigationItem.style = .navigator
 //        }
 
 
@@ -80,6 +80,19 @@ class ReminderListViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
         guard elementKind == ProgressHeaderView.elementKind, let progressView = view as? ProgressHeaderView else { return }
         progressView.progress = progress
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshBackground()
+    }
+    
+    func refreshBackground() {
+        collectionView.backgroundView = nil
+        let backgroundView = UIView()
+        let gradientLayer = CAGradientLayer.gradientLayer(for: listStyle, in: collectionView.frame)
+        backgroundView.layer.addSublayer(gradientLayer)
+        collectionView.backgroundView = backgroundView
     }
     
     func pushDetailViewForReminder(withId id: Reminder.ID) {

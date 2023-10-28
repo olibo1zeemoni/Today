@@ -38,7 +38,7 @@
 				<key>leading</key>
 				<string>        }
         return progress
-       // return CGFloat(filteredReminders.filter({$0.isComplete}).count / filteredReminders.count)//MARK: </string>
+//        return CGFloat(filteredReminders.filter({$0.isComplete}).count / filteredReminders.count)//MARK: </string>
 				<key>trailing</key>
 				<string>
     }
@@ -56,13 +56,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>40</string>
+					<string>46</string>
 					<key>StartingColumnNumber</key>
-					<string>63</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>39</string>
+					<string>45</string>
 					<key>Timestamp</key>
-					<string>720105987.869764</string>
+					<string>720108136.625627</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -78,61 +78,16 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>
+				<string>        containerView.layer.masksToBounds = true//MARK: meaning
 </string>
 				<key>leading</key>
-				<string>        super.layoutSubviews()
+				<string>        accessibilityValue = String(format: valueFormat, Int(progress * 100.0))
         heightConstraint?.constant = progress * bounds.height
-        containerView.layer.masksToBounds = true//MARK: meaning</string>
+</string>
 				<key>trailing</key>
 				<string>        containerView.layer.cornerRadius = 0.5 * containerView.bounds.width
     }
 
-</string>
-			</dict>
-			<key>type</key>
-			<string>bookmark</string>
-		</dict>
-		<dict>
-			<key>destination</key>
-			<dict>
-				<key>location-parameters</key>
-				<dict>
-					<key>EndingColumnNumber</key>
-					<string>0</string>
-					<key>EndingLineNumber</key>
-					<string>71</string>
-					<key>StartingColumnNumber</key>
-					<string>80</string>
-					<key>StartingLineNumber</key>
-					<string>70</string>
-					<key>Timestamp</key>
-					<string>720106593.621022</string>
-				</dict>
-				<key>rebasable-url</key>
-				<dict>
-					<key>base</key>
-					<string>workspace</string>
-					<key>payload</key>
-					<dict>
-						<key>relative-path</key>
-						<string>Today/ListViewController/ProgressHeaderView.swift</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>text-context</key>
-			<dict>
-				<key>focused</key>
-				<string>
-</string>
-				<key>leading</key>
-				<string>        lowerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        
-        heightConstraint = lowerView.heightAnchor.constraint(equalToConstant: 0)</string>
-				<key>trailing</key>
-				<string>        heightConstraint?.isActive = true
-        
-        backgroundColor = .clear
 </string>
 			</dict>
 			<key>type</key>
