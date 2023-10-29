@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         //print(Date(timeIntervalSince1970: 1683939339).dayText)
-        UINavigationBar.appearance().tintColor = .todayPrimaryTint
+        //UINavigationBar.appearance().tintColor = .black
         //UINavigationBar.appearance().backgroundColor = .todayNavigationBackground
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithTransparentBackground()
