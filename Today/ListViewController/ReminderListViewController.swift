@@ -8,15 +8,15 @@
 import UIKit
 
 class ReminderListViewController: UICollectionViewController {
-   // typealias DataSource = UICollectionViewDiffableDataSource<Int, String>
-    //typealias Snapshot = NSDiffableDataSourceSnapshot<Int, String>
     
     var dataSource: DataSource!
-    var reminders: [Reminder] = Reminder.sampleData
+    var reminders: [Reminder] = []
     var listStyle: ReminderListStyle = .today
     var filteredReminders:[Reminder] {
         reminders.filter({ listStyle.shouldInclude(date: $0.dueDate) })
     }
+    
+    private var reminderStore: ReminderStore { ReminderStore.shared}
     
     let listStyleSegmentedControl = UISegmentedControl(items: [
             ReminderListStyle.today.name, ReminderListStyle.future.name, ReminderListStyle.all.name
@@ -70,6 +70,7 @@ class ReminderListViewController: UICollectionViewController {
 
         updateSnapshot()
         collectionView.dataSource = dataSource
+        prepareReminderStore()
     }
     
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -106,7 +107,13 @@ class ReminderListViewController: UICollectionViewController {
     }
     
     func showError(_ error: Error) {
-        
+        let alertTitle = NSLocalizedString("Error", comment: "Error alert title")
+        let alert = UIAlertController(title: alertTitle, message: error.localizedDescription, preferredStyle: .alert)
+        let actionTitle = NSLocalizedString("OK", comment: "Alert OK button title")
+        alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { [weak self] _ in
+        self?.dismiss(animated: true)
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
     private func listLayout() -> UICollectionViewCompositionalLayout {
@@ -132,6 +139,21 @@ class ReminderListViewController: UICollectionViewController {
     private func supplementaryRegistrationHandler(progressView: ProgressHeaderView, elementKind: String, indexPath: IndexPath) {
            headerView = progressView
        }
-
+    
+    func prepareReminderStore(){
+         Task {
+            do {
+                try await reminderStore.requestAccess()
+                reminders = try await reminderStore.readAll()
+            } catch TodayError.accessDenied, TodayError.accessRestricted {
+                #if DEBUG
+                reminders = Reminder.sampleData
+                #endif
+            } catch {
+                showError(error)
+            }
+             updateSnapshot()
+        }
+    }
     
 }
