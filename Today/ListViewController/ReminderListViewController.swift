@@ -105,6 +105,9 @@ class ReminderListViewController: UICollectionViewController {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
+    func showError(_ error: Error) {
+        
+    }
     
     private func listLayout() -> UICollectionViewCompositionalLayout {
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
@@ -130,4 +133,5 @@ class ReminderListViewController: UICollectionViewController {
            headerView = progressView
        }
 
+    
 }
