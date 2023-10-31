@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F52419252AF0DC1A006FD102 /* EKReminder+Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52419242AF0DC1A006FD102 /* EKReminder+Reminder.swift */; };
 		F529716C2AE4E07400D5ED03 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F529716B2AE4E07400D5ED03 /* ReminderViewController.swift */; };
 		F529716F2AE56E5900D5ED03 /* ReminderViewController+Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = F529716E2AE56E5900D5ED03 /* ReminderViewController+Row.swift */; };
 		F52971712AE7C0FF00D5ED03 /* ReminderViewController+Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52971702AE7C0FF00D5ED03 /* ReminderViewController+Section.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F52419242AF0DC1A006FD102 /* EKReminder+Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKReminder+Reminder.swift"; sourceTree = "<group>"; };
 		F529716B2AE4E07400D5ED03 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		F529716E2AE56E5900D5ED03 /* ReminderViewController+Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderViewController+Row.swift"; sourceTree = "<group>"; };
 		F52971702AE7C0FF00D5ED03 /* ReminderViewController+Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderViewController+Section.swift"; sourceTree = "<group>"; };
@@ -108,9 +110,9 @@
 			isa = PBXGroup;
 			children = (
 				F5F4A77D2ADE85C6002EAA7F /* ReminderListViewController.swift */,
-				F58FEB632AEBA42500792FAC /* ProgressHeaderView.swift */,
 				F56F50EA2AE1A9B700F74495 /* ReminderListViewController+DataSource.swift */,
 				F549A9E22AE3F89400A83DEC /* ReminderListViewController+Actions.swift */,
+				F58FEB632AEBA42500792FAC /* ProgressHeaderView.swift */,
 				F549A9E02AE3F5E400A83DEC /* ReminderDoneButton.swift */,
 			);
 			path = ListViewController;
@@ -156,6 +158,7 @@
 				F56F50E72AE121DE00F74495 /* Date+Today.swift */,
 				F58FEB672AEE8EA900792FAC /* TodayError.swift */,
 				F58FEB6B2AEEA12000792FAC /* Reminder+EKReminder.swift */,
+				F52419242AF0DC1A006FD102 /* EKReminder+Reminder.swift */,
 				F58FEB6D2AEEA7E100792FAC /* ReminderStore.swift */,
 				F58FEB692AEE91C000792FAC /* EKEventStore+AsyncFetch.swift */,
 				F58FEB612AEB165900792FAC /* ReminderListStyle.swift */,
@@ -261,6 +264,7 @@
 				F58FEB662AECBE9100792FAC /* CAGradientLayer+ListStyle.swift in Sources */,
 				F56F50EB2AE1A9B700F74495 /* ReminderListViewController+DataSource.swift in Sources */,
 				F58FEB6E2AEEA7E100792FAC /* ReminderStore.swift in Sources */,
+				F52419252AF0DC1A006FD102 /* EKReminder+Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

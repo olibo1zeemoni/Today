@@ -16,7 +16,6 @@ class ReminderListViewController: UICollectionViewController {
         reminders.filter({ listStyle.shouldInclude(date: $0.dueDate) })
     }
     
-    private var reminderStore: ReminderStore { ReminderStore.shared}
     
     let listStyleSegmentedControl = UISegmentedControl(items: [
             ReminderListStyle.today.name, ReminderListStyle.future.name, ReminderListStyle.all.name
@@ -140,20 +139,5 @@ class ReminderListViewController: UICollectionViewController {
            headerView = progressView
        }
     
-    func prepareReminderStore(){
-         Task {
-            do {
-                try await reminderStore.requestAccess()
-                reminders = try await reminderStore.readAll()
-            } catch TodayError.accessDenied, TodayError.accessRestricted {
-                #if DEBUG
-                reminders = Reminder.sampleData
-                #endif
-            } catch {
-                showError(error)
-            }
-             updateSnapshot()
-        }
-    }
     
 }
