@@ -22,6 +22,8 @@
 		F56F50E82AE121DE00F74495 /* Date+Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F50E72AE121DE00F74495 /* Date+Today.swift */; };
 		F56F50EB2AE1A9B700F74495 /* ReminderListViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F50EA2AE1A9B700F74495 /* ReminderListViewController+DataSource.swift */; };
 		F56F50F12AE1FDCA00F74495 /* UIColor+Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F50F02AE1FDCA00F74495 /* UIColor+Today.swift */; };
+		F57ED9372AF268D400183DBD /* AVPlayer+Ding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57ED9362AF268D400183DBD /* AVPlayer+Ding.swift */; };
+		F57ED9392AF2692500183DBD /* ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = F57ED9382AF2692500183DBD /* ding.wav */; };
 		F58FEB622AEB165900792FAC /* ReminderListStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58FEB612AEB165900792FAC /* ReminderListStyle.swift */; };
 		F58FEB642AEBA42500792FAC /* ProgressHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58FEB632AEBA42500792FAC /* ProgressHeaderView.swift */; };
 		F58FEB662AECBE9100792FAC /* CAGradientLayer+ListStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58FEB652AECBE9100792FAC /* CAGradientLayer+ListStyle.swift */; };
@@ -54,6 +56,8 @@
 		F56F50E72AE121DE00F74495 /* Date+Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Today.swift"; sourceTree = "<group>"; };
 		F56F50EA2AE1A9B700F74495 /* ReminderListViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderListViewController+DataSource.swift"; sourceTree = "<group>"; };
 		F56F50F02AE1FDCA00F74495 /* UIColor+Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Today.swift"; sourceTree = "<group>"; };
+		F57ED9362AF268D400183DBD /* AVPlayer+Ding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Ding.swift"; sourceTree = "<group>"; };
+		F57ED9382AF2692500183DBD /* ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ding.wav; sourceTree = "<group>"; };
 		F58FEB612AEB165900792FAC /* ReminderListStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListStyle.swift; sourceTree = "<group>"; };
 		F58FEB632AEBA42500792FAC /* ProgressHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHeaderView.swift; sourceTree = "<group>"; };
 		F58FEB652AECBE9100792FAC /* CAGradientLayer+ListStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+ListStyle.swift"; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 				F56F50E92AE1A8D300F74495 /* ListViewController */,
 				F529716D2AE56DDD00D5ED03 /* DetailViewController */,
 				F5F4A7822ADE85C9002EAA7F /* Assets.xcassets */,
+				F57ED9382AF2692500183DBD /* ding.wav */,
 				F5F4A77F2ADE85C7002EAA7F /* Main.storyboard */,
 				F5F4A7842ADE85C9002EAA7F /* LaunchScreen.storyboard */,
 				F5F4A7872ADE85C9002EAA7F /* Info.plist */,
@@ -157,6 +162,7 @@
 				F5F4A78E2ADE8762002EAA7F /* Reminder.swift */,
 				F56F50E72AE121DE00F74495 /* Date+Today.swift */,
 				F58FEB672AEE8EA900792FAC /* TodayError.swift */,
+				F57ED9362AF268D400183DBD /* AVPlayer+Ding.swift */,
 				F58FEB6B2AEEA12000792FAC /* Reminder+EKReminder.swift */,
 				F52419242AF0DC1A006FD102 /* EKReminder+Reminder.swift */,
 				F58FEB6D2AEEA7E100792FAC /* ReminderStore.swift */,
@@ -228,6 +234,7 @@
 			files = (
 				F5F4A7862ADE85C9002EAA7F /* LaunchScreen.storyboard in Resources */,
 				F5F4A7832ADE85C9002EAA7F /* Assets.xcassets in Resources */,
+				F57ED9392AF2692500183DBD /* ding.wav in Resources */,
 				F5F4A7812ADE85C7002EAA7F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +253,7 @@
 				F56F50F12AE1FDCA00F74495 /* UIColor+Today.swift in Sources */,
 				F549A9E32AE3F89400A83DEC /* ReminderListViewController+Actions.swift in Sources */,
 				F58FEB682AEE8EA900792FAC /* TodayError.swift in Sources */,
+				F57ED9372AF268D400183DBD /* AVPlayer+Ding.swift in Sources */,
 				F529716C2AE4E07400D5ED03 /* ReminderViewController.swift in Sources */,
 				F58FEB622AEB165900792FAC /* ReminderListStyle.swift in Sources */,
 				F529717A2AE9746E00D5ED03 /* UIContentConfiguration+Stateless.swift in Sources */,

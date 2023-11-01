@@ -74,6 +74,9 @@ extension ReminderListViewController {
         var reminder = reminder(withId: id)
         reminder.isComplete.toggle()
         updateReminder(reminder)
+        if reminder.isComplete {
+            playDing()
+        }
         updateSnapshot(reloading: [reminder.id])
     }
     

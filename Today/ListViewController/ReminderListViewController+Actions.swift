@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 extension ReminderListViewController {
     @objc func eventStoreChanged(_ notification: NSNotification){
@@ -15,7 +16,6 @@ extension ReminderListViewController {
     @objc func didPressDoneButton(_ sender: ReminderDoneButton) {
         guard let id = sender.id else { return }
         completeReminder(withId: id)
-        //collectionView.reloadData()
     }
     
     @objc func didPressAddButton(_ sender: UIBarButtonItem) {
@@ -45,5 +45,9 @@ extension ReminderListViewController {
         refreshBackground()
        }
     
+    func playDing(){
+        AVPlayer.sharedDingPlayer.seek(to: .zero)
+        AVPlayer.sharedDingPlayer.play()
+    }
     
 }
